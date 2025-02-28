@@ -3,7 +3,8 @@ from flask_cors import CORS
 from textblob import TextBlob
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["localhost:5173", "trooth-ai.test"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://trooth-ai.test"]}}) #add http://
+
 
 
 @app.route('/rate', methods=['POST'])
