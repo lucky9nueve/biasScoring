@@ -3,7 +3,7 @@ from flask_cors import CORS
 from textblob import TextBlob
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "lucky9nueve.pythonanywhere.com"}})
 
 
 @app.route('/rate', methods=['POST'])
@@ -187,7 +187,7 @@ def analyze_bias():
         responses = {}
 
         for endpoint in endpoints:
-            url = f'http://lucky9nueve.pythonanywhere.com/{endpoint}'
+            url = f'https://lucky9nueve.pythonanywhere.com/{endpoint}'
             response = requests.post(url, json={'statement': statement})
 
             if response.status_code != 200:
